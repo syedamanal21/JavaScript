@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+  <h2>Javascript Array Methods</h2>
+  <h2>Join() & Pop()</h2>
+<p id="myjoin"></p>
+<p id="beforepop"></p>
+<p id="afterpop"></p>
+<script>
+    var fruits=["Apple","Banana","Orange","Strawberry","Mango"];
+    document.getElementById("myjoin").innerHTML=fruits.join("*")
+    document.getElementById("beforepop").innerHTML=fruits;
+    fruits.pop()
+    document.getElementById("afterpop").innerHTML=fruits;
+    
+</script>
+</body>
+</html>

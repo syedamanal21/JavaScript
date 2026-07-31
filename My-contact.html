@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>My Phone Contact</h1>
+        <p>Introduction to Objects in Javascript</p>
+        <div>
+            <h5>Contact Details</h5>
+            <ul>
+                <li>
+            <span>Name</span>
+            <strong id="name"></strong>
+            </li>
+           
+            <li>
+                 <span>Phone</span>
+                 <strong id="phone"></strong>
+            </li>
+            <li>
+                <span>School</span>
+                <strong id="school"></strong>
+            </li>
+            <li>
+                <span>City</span>
+                <strong id="city"></strong>
+            </li>
+                 </ul>
+
+        </div>
+    </div>
+    <div>
+        <h6>Javascript objects used</h6>
+        <pre id="codedisplay"></pre>
+    </div>
+    <script>
+        var mycontact={name:"Syeda Manal",phone:"+923173954296",school:"UPSS",city:"Karachi"}
+        var n=document.getElementById("name");
+        var p=document.getElementById("phone");
+        n.textContent=mycontact.name;
+        p.textContent=mycontact.phone;
+        var s=document.getElementById("school");
+        var c=document.getElementById("city");
+        s.textContent=mycontact["school"];
+        c.textContent=mycontact["city"];
+        var code=document.getElementById("codedisplay")
+       code.textContent='var mycontact={name:"Syeda Manal",phone:"+923173954296",school:"UPSS",city:"Karachi"}'
+    </script>
+</body>
+</html>
