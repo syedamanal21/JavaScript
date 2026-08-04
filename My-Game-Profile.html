@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Profile</title>
+</head>
+<body>
+    <h1>My Game Profile</h1>
+    <button onclick="ShowProfile()" >Show Profile</button>
+    <div>Name: <span id="name"></span></div>
+    <div>Score: <span id="score"></span></div>
+    <div>Top Score: <span id="topscore"></span></div>
+    <div>Rank: <span id="Rank"></span></div>
+    <div>Greetings: <span id="greetings"></span></div>
+    <div>Stars: <span id="stars"></span></div>
+    <div>Bonus Level: <span id="bonus"></span></div>
+    <div>Team Name: <span id="teamname "></span></div>
+    <script>
+        function ShowProfile(){
+            let name="Manal";
+            let myscore=75;
+            let highscore=100;
+            let bonus=null;
+            let teamname;
+            let topscore=myscore==highscore;
+            let rank;
+            if(myscore>=80){
+                rank="Gold"
+            }
+            else if (myscore>=50){
+                rank="Silver"
+            }
+            else{
+                rank="Bronze"
+            }
+            let stars="";
+            let count=0;
+            while(count<5){
+                satrs=stars+"⭐";
+                count=count+1;
+            }
+            let hour=new Date().gethours();
+            let greeting;
+            if(hour<12){
+                greeting="Good Morning!";
+            }
+            else if(hour<17){
+                greeting="Good Afternoon!";
+            }
+            else{
+                greeting="Good Evening!";
+            }
+             document.getElementById("name").innerHTML=name;
+             document.getElementById("score").innerHTML=score;
+             document.getElementById("topscore").innerHTML=topscore;
+             document.getElementById("Rank").innerHTML=Rank;
+             document.getElementById("greetings").innerHTML=greeting;
+             document.getElementById("stars").innerHTML=stars;
+             document.getElementById("bonus").innerHTML=bonus;
+             document.getElementById("teamname").innerHTML=teamname;
+             
+        }
+    </script>
+</body>
+</html>
