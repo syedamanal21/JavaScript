@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Sorting and Mapping</title>
+</head>
+<body>
+    <h1>My Playlist Sorter</h1>
+    <p>Sort and label your music playlist</p>
+    <div>
+        <h3>Song Names</h3>
+        <button onclick="sortleast()">Least Played First</button>
+        <button onclick="sortmost()">Most Played First</button>
+        <div id="CountResult"></div>
+        <div>
+            <h3>Play Counts</h3>
+            <button onclick="sortA()">Sort A to Z</button> 
+            <button onclick="sortD()">Sort Z to A</button> 
+            <div id="nameResult"></div>
+        </div>
+        <div>
+            <h3>Label Every Play Count</h3>
+            <button onclick="addlabel()">Add Plays Label</button>
+            <div id="labelResult"></div>
+        </div>
+    </div>
+    <script>
+        var songs=["Zoom","Bounce","Glow","Rush","Spark"];
+        var plays=[320,85,210,50,175];
+        document.getElementById("nameResult").innerHTML="songs:"+songs;
+        document.getElementById("CountResult").innerHTML="plays:"+plays;
+        document.getElementById("labelResult").innerHTML="Press the button!";
+        function sortA(){
+            songs.sort();
+            document.getElementById("nameResult").innerHTML="A to Z:"+songs;
+        }
+         function sortD(){
+            songs.reverse();
+            document.getElementById("nameResult").innerHTML="Z to A:"+songs;
+        }  
+        function sortmost(){
+            plays.sort(function(a,b){return b-a;});
+            document.getElementById("CountResult").innerHTML="Most played first"+plays;
+        }
+         function sortleast(){
+            plays.sort(function(a,b){return a-b;});
+            document.getElementById("CountResult").innerHTML="Least played first"+plays;
+        }
+        function addlabel(){
+            var l=plays.map(function(c){return c+"plays";});
+            document.getElementById("labelResult").innerHTML="labelled:"+l;
+        }
+    </script>
+</body>
+</html>
