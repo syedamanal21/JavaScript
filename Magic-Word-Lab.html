@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <title>My Magic Word Lab</title>
+</head>
+<body>
+    <h1>My Magic Word Lab</h1>
+    <p>Discover types,switch them , find and swap and catch sneaky errors!</p>
+    <div>
+        <h3>What type is it?</h3>
+        <button onclick="checktype()">Reveal the types!</button>
+        <div id="typeresult">Press the button to reveal the secret!</div>
+    </div>
+    <div>
+        <h3>Switch the type</h3>
+        <input type="numin" type="number">
+        <button onclick="tostr()">Turn into text</button>
+        <button onclick="tonum()">Turn into number</button>
+        <div id="convresult">Type a number above then press button!</div>
+    </div>
+    <div>
+        <h3>Find and swap words</h3>
+        <input type="findw" type="text">
+        <input type="swapw" type="text">
+        <button onclick="dosearch()">Find it!</button>
+        <button onclick="doreplace()">Swap it!</button>
+        <div id="srresult">Sentence: The dragon flew over the big castle.</div>
+    </div>
+    <div>
+        <h3>Catch the mistake!</h3>
+        <input id="divin" type="number">
+        <button onclick="trysafe()">Try it!</button>
+        <div id="error">Type a number or something silly and see what happens next!</div>
+    </div>
+    <script>
+        var s="The dragon flew over the big castle!"
+        function checktype(){
+            document.getElementById("typeresult").innerText="Name 'Manal' -type:" +typeof "Manal";
+        }
+        function tostr(){
+            var v=document.getElementById("numin").value;
+            document.getElementById("convresult").innerHTML=String(v);
+        }
+         function tonum(){
+            var v=document.getElementById("numin").value;
+            document.getElementById("convresult").innerHTML=Number(v);
+        }
+        function dosearch(){
+            var w=document.getElementById("findw").value;
+            var p=s.search(w);
+            document.getElementById("srresult").innerHTML= p=== -1 ? "Not found" : "found at position" +p;
+        }
+                function doreplace(){
+            var w=document.getElementById("findw").value;
+            var r=document.getElementById("swapw").value;
+            var p=s.search(w);
+            document.getElementById("srresult").innerHTML= s.replace(w,r);
+        }
+        function trysafe(){
+            try{
+                var n=document.getElementById("divin").value;
+                if (n=== "" || isNaN(n)){"You catch the error!"}
+                document.getElementById("error").innerHTML=100/Number(n);
+            }
+            catch(err){document.getElementById("error").innerHTML="Error caught" +err};
+        }
+    </script>
+</body>
+</html>
