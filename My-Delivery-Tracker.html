@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Delivery Tracker</title>
+</head>
+
+<body>
+
+    <h1>My Delivery Tracker</h1>
+
+    <button onclick="saveorder()">Save Order</button>
+    <button onclick="startdelivery()">Start Delivery</button>
+
+    <div>
+        JSON Text:
+        <span id="json-text"></span>
+    </div>
+
+    <div>
+        Loaded Item:
+        <span id="loaded-item"></span>
+    </div>
+
+    <div>
+        Loaded Price:
+        <span id="loaded-price"></span>
+    </div>
+
+    <div>
+        Status:
+        <span id="status"></span>
+    </div>
+
+    <div>
+        Result:
+        <span id="result"></span>
+    </div>
+
+
+    <script>
+
+        let order = {
+            item: "pizza",
+            price: 5,
+            shop: "My snack shop"
+        };
+
+
+        function saveorder() {
+
+            let jsontext = JSON.stringify(order);
+
+            let loadedorder = JSON.parse(jsontext);
+
+            document.getElementById("json-text").innerHTML = jsontext;
+
+            document.getElementById("loaded-item").innerHTML =
+                loadedorder.item;
+
+            document.getElementById("loaded-price").innerHTML =
+                loadedorder.price + " Rs";
+        }
+
+
+        function delay(ms) {
+
+            return new Promise(function(resolve) {
+
+                setTimeout(resolve, ms);
+
+            });
+        }
+
+
+        async function startdelivery() {
+
+            document.getElementById("result").innerHTML = "";
+
+            document.getElementById("status").innerHTML =
+                "Order received!";
+
+
+            await delay(1000);
+
+
+            document.getElementById("status").innerHTML =
+                "Kitchen is Preparing!";
+
+
+            await delay(2000);
+
+
+            document.getElementById("status").innerHTML =
+                "Out for delivery...";
+
+
+            await delay(2000);
+
+
+            document.getElementById("result").innerHTML =
+                "Your Order has Arrived!";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
