@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: rgb(223, 236, 247);
+        
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Draw</title>
+
+</head>
+<body>
+    <h1>Lucky Draw</h1>
+    <p>Enter your name and Guess a number to win!</p>
+    <input type="text" id="name" placeholder="Your Name" required><br>
+    <p id="msg-name"></p>
+    <input type="number" id="guess" placeholder="guess a number (1 to 5)" min="1" max="5"><br>
+    <p id="msg-guess"></p>
+    <button onclick="checkform()">Try my Luck!</button>
+    <p id="result"></p>
+    <p id="timer"></p>
+    <script>
+        var sec=0;
+        setInterval(function(){
+        sec=sec+1;
+        document.getElementById("timer").textContent="You have been here for "+sec+"seconds!"; 
+    },1000);
+    function checkform(){
+        var name=document.getElementById("name").value;
+        var guess=document.getElementById("guess").value;
+        var ok = true;
+        if (name==""){
+      document.getElementById("msg-name").textContent="Please Enter Your Name!";
+      document.getElementById("msg-name").style.color="red";
+     ok=false;
+        }
+        else{
+            document.getElementById("msg-name").textContent="Good Name!";
+            document.getElementById("msg-name").style.color="green";
+        }
+         if (guess==""){
+      document.getElementById("msg-guess").textContent="Please Enter Your Guess!";
+      document.getElementById("msg-guess").style.color="red";
+      ok=false;
+        }
+        else{
+            document.getElementById("msg-guess").textContent="Guess Saved!";
+            document.getElementById("msg-guess").style.color="green";
+        }
+        if (ok==true){
+            var lucky=math.floor(math.random()*5)+1;
+            if (guess==lucky){
+                document.getElementById("result").textContent="You Win";
+                document.getElementById("result").style.color="green";
+            }
+            else{
+                 document.getElementById("result").textContent="Try Again!";
+                document.getElementById("result").style.color="red";
+            }
+        }
+    }
+
+    </script>
+</body>
+</html>
