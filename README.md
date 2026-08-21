@@ -44,7 +44,7 @@ Languages & Technologies:
 
 🗄️ SQL: Working with databases, queries, and structured data.
 
-Libraries & Frameworks: 
+🧩 Libraries & Frameworks: 
 
 • NumPy 
 
@@ -56,7 +56,7 @@ Libraries & Frameworks:
 
 • Seaborn
 
-Development & Version Control: 
+🔄 Development & Version Control: 
 
 • Git
 
@@ -70,7 +70,7 @@ Development & Version Control:
 
 • JupyterLab
 
-I collect badges and achievements through: 
+🎖️ I collect badges and achievements through: 
 
 • Coding challenges 
 
@@ -82,7 +82,7 @@ I collect badges and achievements through:
 
 • Data Science & AI learning
 
-Goals: 
+🎯 Goals: 
 
 • Become a skilled Web Developer 
 
@@ -92,4 +92,4 @@ Goals:
 
 • Grow as a developer every day
 
-Here you'll find my coding projects, practice work, and creative experiments related to "JAVASCRIPT".
+(Here you'll find my coding projects, practice work, and creative experiments related to "JAVASCRIPT".)
