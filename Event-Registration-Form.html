@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fff0f6, #fce7f3);
+      color: #333333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-card {
+      width: 520px;
+      max-width: 85%;
+      background-color: #ffffff;
+      border: 3px solid #ec4899;
+      border-radius: 22px;
+      margin: 45px auto;
+      padding: 30px;
+      box-shadow: 0 8px 25px #f9a8d4;
+    }
+
+    .emoji {
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      color: #db2777;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #666666;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #9d174d;
+    }
+
+    input,
+    select {
+      width: 95%;
+      padding: 11px;
+      margin-top: 7px;
+      border: 2px solid #f9a8d4;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      background-color: #fff7fb;
+      transition: 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #ec4899;
+      box-shadow: 0 0 8px #f9a8d4;
+      background-color: #ffffff;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ec4899, #db2777);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 13px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 22px;
+      box-shadow: 0 5px 12px #f9a8d4;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #db2777, #be185d);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px #f472b6;
+    }
+
+    #feedback {
+      margin-top: 22px;
+      padding: 16px;
+      border-radius: 14px;
+      font-weight: bold;
+      line-height: 1.7;
+      background-color: #fff7fb;
+      border: 2px dashed #f472b6;
+      color: #9d174d;
+    }
+
+    .success {
+      background-color: #fdf2f8 !important;
+      color: #9d174d !important;
+      border: 2px solid #ec4899 !important;
+    }
+
+    .error {
+      background-color: #fff1f2 !important;
+      color: #be123c !important;
+      border: 2px solid #fb7185 !important;
+    }
+
+    .footer {
+      margin-top: 25px;
+      color: #be185d;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+
+      .form-card {
+        width: auto;
+        margin: 25px 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      input,
+      select {
+        width: 92%;
+      }
+
+      button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-card">
+    <div class="emoji">🌸🎀📝</div>
+    <h1>Event Registration Form</h1>
+    <p class="description">
+      Fill in the form to register for the school event
+      and generate your event pass. 💗
+    </p>
+    <form id="eventForm">
+      <label for="studentName">
+        👤 Student Name
+      </label>
+      <input
+        type="text"
+        id="studentName"
+        required
+        minlength="3"
+        placeholder="Enter your name">
+      <label for="email">
+        📧 Email Address
+      </label>
+      <input
+        type="email"
+        id="email"
+        required
+        placeholder="Enter your email">
+      <label for="age">
+        🎂 Age
+      </label>
+      <input
+        type="number"
+        id="age"
+        required
+        min="8"
+        max="18"
+        placeholder="Enter your age">
+      <label for="eventName">
+        🎉 Choose Event
+      </label>
+      <select id="eventName" required>
+        <option value="">
+          Select an event
+        </option>
+        <option value="Science Fair">
+          🔬 Science Fair
+        </option>
+        <option value="Coding Workshop">
+          💻 Coding Workshop
+        </option>
+        <option value="Art Competition">
+          🎨 Art Competition
+        </option>
+        <option value="Sports Day">
+          🏆 Sports Day
+        </option>
+      </select>
+      <button
+        type="button"
+        onclick="registerEvent()"
+      >
+        💗 Register Now 💗
+      </button>
+    </form>
+    <div id="feedback">
+      Waiting for registration... ⏳
+    </div>
+    <div class="footer">
+      🌷 School Events • Registration Portal 🌷
+    </div>
+  </div>
+  <script>
+    function registerEvent() {
+      let form = document.getElementById("eventForm");
+      let feedback = document.getElementById("feedback");
+      try {
+        if (!form.checkValidity()) {
+          throw form.reportValidity();
+          }
+        let studentName =
+          document.getElementById("studentName").value;
+        let email =
+          document.getElementById("email").value;
+        let age =
+          Number(document.getElementById("age").value);
+        let eventName =
+          document.getElementById("eventName").value;
+        if (studentName.length < 3) {
+          throw "Name must have at least 3 characters.";
+        }
+        if (age < 8 || age > 18) {
+          throw "Age must be between 8 and 18.";
+        }
+        if (eventName === "") {
+          throw "Please select an event.";
+        }
+        feedback.className = "";
+        feedback.innerHTML =
+          "⏳ Checking your registration details...";
+        setTimeout(function() {
+          let passNumber =
+            Math.floor(Math.random() * 9000) + 1000;
+          feedback.className = "success";
+          feedback.innerHTML =
+            "🎉 Registration Successful! 🎉<br>" +
+            "👤 Student Name: " + studentName + "<br>" +
+            "📧 Email: " + email + "<br>" +
+            "🎂 Age: " + age + "<br>" +
+            "🎉 Event: " + eventName + "<br>" +
+            "🎟️ Your Event Pass Number: EVT-" +
+            passNumber;
+        }, 2000);
+      }
+      catch (error) {
+       feedback.className = "error";
+        if (error !== undefined) {
+          feedback.innerHTML =
+            "❌ Registration failed: " + error;
+        }
+        else {
+          feedback.innerHTML =
+            "⚠️ Please complete all required fields correctly.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
