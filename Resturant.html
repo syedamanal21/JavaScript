@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Taste Restaurant</title>
+
+    <style>
+
+        /* ================= GENERAL ================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #2B1D16;
+            font-family: Arial, sans-serif;
+            color: #F8EBDD;
+        }
+
+
+        /* ================= NAVIGATION BAR ================= */
+
+        .navbar {
+            width: 100%;
+            padding: 20px 9%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background-color: #2B1D16;
+            border-bottom: 1px solid #6B4935;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .logo {
+            color: #E7B86A;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+            color: #F3E0CC;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #E7B86A;
+        }
+
+
+        /* ================= RESTAURANT SECTION ================= */
+
+        .restaurant-section {
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 70px 9%;
+            gap: 70px;
+        }
+
+
+        /* ================= LEFT BACKGROUND IMAGE ================= */
+
+        .restaurant-image {
+            width: 45%;
+            height: 430px;
+
+            background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            border-radius: 18px;
+
+            box-shadow: 0 0 25px rgba(231, 184, 106, 0.20);
+
+            transition: 0.3s;
+        }
+
+
+        .restaurant-image:hover {
+            transform: scale(1.02);
+
+            box-shadow: 0 0 30px rgba(231, 184, 106, 0.30);
+        }
+
+
+        /* ================= RIGHT CONTENT ================= */
+
+        .restaurant-content {
+            width: 52%;
+        }
+
+
+        .restaurant-content h1 {
+            color: #E7B86A;
+            font-size: 35px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+
+        .restaurant-content > p {
+            color: #F3E0CC;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            max-width: 650px;
+        }
+
+
+        /* ================= SPECIALTIES ================= */
+
+        .specialties-section {
+            margin-top: 25px;
+        }
+
+
+        .specialties-section h2,
+        .menu-section h2 {
+            color: #E7B86A;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+
+        .specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+
+        .specialty {
+            padding: 9px 16px;
+
+            color: #E7B86A;
+            background-color: #3A281E;
+
+            border: 1px solid #E7B86A;
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .specialty:hover {
+            background-color: #E7B86A;
+            color: #2B1D16;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= MENU ================= */
+
+        .menu-section {
+            margin-top: 10px;
+        }
+
+
+        .menu-items {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            margin-bottom: 25px;
+        }
+
+
+        .menu-card {
+            width: 150px;
+
+            padding: 15px;
+
+            background-color: #3A281E;
+
+            border: 1px solid #6B4935;
+            border-radius: 10px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #E7B86A;
+
+            box-shadow: 0 5px 20px rgba(231, 184, 106, 0.15);
+        }
+
+
+        .menu-card span {
+            font-size: 30px;
+        }
+
+
+        .menu-card h3 {
+            color: #F3E0CC;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+
+        /* ================= VIEW MENU BUTTON ================= */
+
+        .restaurant-content button {
+            margin-top: 8px;
+
+            padding: 13px 25px;
+
+            background: transparent;
+            color: #E7B86A;
+
+            border: 2px solid #E7B86A;
+            border-radius: 5px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .restaurant-content button:hover {
+            background: #E7B86A;
+            color: #2B1D16;
+        }
+
+
+        /* ================= ABOUT RESTAURANT ================= */
+
+        #aboutText {
+            display: none;
+
+            margin-top: 25px;
+            padding: 22px;
+
+            border-left: 3px solid #E7B86A;
+
+            background-color: #3A281E;
+
+            border-radius: 8px;
+
+            animation: fadeIn 0.5s ease;
+        }
+
+
+        #aboutText h2 {
+            color: #E7B86A;
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+
+        #aboutText p {
+            color: #F3E0CC;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+
+            .nav-links {
+                gap: 15px;
+            }
+
+
+            .restaurant-section {
+                flex-direction: column;
+                padding: 50px 5%;
+            }
+
+
+            .restaurant-image,
+            .restaurant-content {
+                width: 100%;
+            }
+
+
+            .restaurant-image {
+                height: 350px;
+            }
+
+
+            .restaurant-content h1 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION BAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ROYAL TASTE
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#specialties">Specialties</a>
+            </li>
+
+            <li>
+                <a href="#menu">Why Choose?</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= RESTAURANT SECTION ================= -->
+
+    <section class="restaurant-section" id="about">
+
+
+        <!-- LEFT BACKGROUND IMAGE -->
+
+        <div class="restaurant-image"></div>
+
+
+        <!-- RIGHT SIDE CONTENT -->
+
+        <div class="restaurant-content">
+
+
+            <h1>
+                Welcome to Royal Taste
+            </h1>
+
+
+            <p>
+                Welcome to Royal Taste, where delicious food meets a warm
+                and elegant atmosphere. We bring together fresh ingredients,
+                rich flavors, and beautiful presentation to create a dining
+                experience that you will always remember.
+            </p>
+
+
+            <p>
+                Our restaurant offers a variety of delicious dishes prepared
+                with care by our talented chefs. From mouth-watering main
+                courses to delightful desserts, every dish is made to bring
+                happiness to your table.
+            </p>
+
+
+            <p>
+                Whether you are enjoying a family dinner, celebrating a
+                special occasion, or simply craving something delicious,
+                Royal Taste is the perfect place to relax, enjoy great food,
+                and create beautiful memories.
+            </p>
+
+
+            <!-- ================= SPECIALTIES ================= -->
+
+            <div class="specialties-section" id="specialties">
+
+                <h2>
+                    Our Specialties
+                </h2>
+
+
+                <div class="specialties">
+
+                    <div class="specialty">
+                        Pakistani Cuisine
+                    </div>
+
+                    <div class="specialty">
+                        BBQ
+                    </div>
+
+                    <div class="specialty">
+                        Fast Food
+                    </div>
+
+                    <div class="specialty">
+                        Desserts
+                    </div>
+
+                    <div class="specialty">
+                        Fresh Drinks
+                    </div>
+
+                    <div class="specialty">
+                        Special Platters
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MENU ================= -->
+
+            <div class="menu-section" id="menu">
+
+                <h2>
+                    Popular Menu
+                </h2>
+
+
+                <div class="menu-items">
+
+
+                    <div class="menu-card">
+
+                        <span>
+                            🍔
+                        </span>
+
+                        <h3>
+                            Classic Burger
+                        </h3>
+
+                    </div>
+
+
+                    <div class="menu-card">
+
+                        <span>
+                            🍕
+                        </span>
+
+                        <h3>
+                            Cheese Pizza
+                        </h3>
+
+                    </div>
+
+
+                    <div class="menu-card">
+
+                        <span>
+                            🍗
+                        </span>
+
+                        <h3>
+                            BBQ Platter
+                        </h3>
+
+                    </div>
+
+
+                    <div class="menu-card">
+
+                        <span>
+                            🍰
+                        </span>
+
+                        <h3>
+                            Special Dessert
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EXPLORE BUTTON ================= -->
+
+            <button onclick="showAbout()">
+                Discover More →
+            </button>
+
+
+            <!-- ================= HIDDEN CONTENT ================= -->
+
+            <div id="aboutText">
+
+                <h2>
+                    Why Choose Royal Taste?
+                </h2>
+
+
+                <p>
+                    At Royal Taste, we believe that good food brings people
+                    together. Our goal is to provide fresh, flavorful, and
+                    beautifully prepared meals in a comfortable environment.
+                    With friendly service and a passion for quality, we make
+                    every visit special for our guests.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function showAbout() {
+
+            document.getElementById("aboutText").style.display = "block";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
