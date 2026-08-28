@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Coding Journey</title>
+
+    <style>
+
+        /* ================= GENERAL ================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #071A21;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* ================= NAVIGATION BAR ================= */
+
+        .navbar {
+            width: 100%;
+            padding: 20px 9%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background-color: #071A21;
+            border-bottom: 1px solid #163943;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .logo {
+            color: #58D9E8;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+            color: #D8D4E3;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #58D9E8;
+        }
+
+
+        /* ================= CODING JOURNEY ================= */
+
+        .coding-journey {
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 70px 9%;
+            gap: 70px;
+        }
+
+
+        /* ================= LEFT IMAGE ================= */
+
+        .journey-image {
+            width: 45%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .journey-image img {
+            width: 90%;
+            max-width: 470px;
+            height: 430px;
+
+            object-fit: contain;
+
+            background: #E9D8F2;
+            border-radius: 12px;
+            padding: 25px;
+
+            box-shadow: 0 0 25px rgba(88, 217, 232, 0.15);
+        }
+
+
+        /* ================= RIGHT CONTENT ================= */
+
+        .journey-content {
+            width: 52%;
+        }
+
+
+        .journey-content h1 {
+            color: #58D9E8;
+            font-size: 35px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+
+        .journey-content > p {
+            color: #D8D4E3;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            max-width: 650px;
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skills-section {
+            margin-top: 25px;
+        }
+
+
+        .skills-section h2,
+        .projects-section h2 {
+            color: #58D9E8;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+
+        .skill {
+            padding: 9px 16px;
+
+            color: #58D9E8;
+            background-color: #0B252D;
+
+            border: 1px solid #58D9E8;
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .skill:hover {
+            background-color: #58D9E8;
+            color: #071A21;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= PROJECTS ================= */
+
+        .projects-section {
+            margin-top: 10px;
+        }
+
+
+        .projects {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            margin-bottom: 25px;
+        }
+
+
+        .project-card {
+            width: 150px;
+
+            padding: 15px;
+
+            background-color: #0B252D;
+
+            border: 1px solid #163943;
+            border-radius: 10px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #58D9E8;
+
+            box-shadow: 0 5px 20px rgba(88, 217, 232, 0.15);
+        }
+
+
+        .project-card span {
+            font-size: 30px;
+        }
+
+
+        .project-card h3 {
+            color: #D8D4E3;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+
+        /* ================= EXPLORE BUTTON ================= */
+
+        .journey-content button {
+            margin-top: 8px;
+
+            padding: 13px 25px;
+
+            background: transparent;
+            color: #58D9E8;
+
+            border: 2px solid #58D9E8;
+            border-radius: 5px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .journey-content button:hover {
+            background: #58D9E8;
+            color: #071A21;
+        }
+
+
+        /* ================= WHY CODINGAL ================= */
+
+        #aboutText {
+            display: none;
+
+            margin-top: 25px;
+            padding: 22px;
+
+            border-left: 3px solid #58D9E8;
+
+            background-color: #0B252D;
+
+            border-radius: 8px;
+
+            animation: fadeIn 0.5s ease;
+        }
+
+
+        #aboutText h2 {
+            color: #58D9E8;
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+
+        #aboutText p {
+            color: #D8D4E3;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+
+            .nav-links {
+                gap: 15px;
+            }
+
+
+            .coding-journey {
+                flex-direction: column;
+                padding: 50px 5%;
+            }
+
+
+            .journey-image,
+            .journey-content {
+                width: 100%;
+            }
+
+
+            .journey-image img {
+                height: 350px;
+            }
+
+
+            .journey-content h1 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION BAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            MY CODING JOURNEY
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================= CODING JOURNEY ================= -->
+
+    <section class="coding-journey" id="about">
+
+
+        <!-- LEFT IMAGE -->
+
+        <div class="journey-image">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRik2exC_Vl1_XImuJint5hTJHvPf7qIA2ojEmeqPEuQQ&s=10"
+                alt="Coding Journey">
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="journey-content">
+
+
+            <h1>
+                About My Coding Journey
+            </h1>
+
+
+            <p>
+                My coding journey started with curiosity and a desire to
+                learn something creative and useful. At first, coding seemed
+                a little difficult, but as I started practicing, I realized
+                how exciting it is to turn ideas into real projects.
+            </p>
+
+
+            <p>
+                During my learning journey, I joined
+                <strong>Codingal</strong>, where I got the opportunity to
+                learn and improve my programming skills in a structured and
+                interactive way. Through different lessons, coding challenges,
+                and projects, I became more confident with technologies like
+                <strong>HTML, CSS, JavaScript, and Python.</strong>
+            </p>
+
+
+            <p>
+                Every project I create teaches me something new and motivates
+                me to explore more. My coding journey is still continuing,
+                and my goal is to become a skilled developer who can create
+                creative, useful, and user-friendly digital experiences.
+            </p>
+
+
+
+            <!-- ================= SKILLS ================= -->
+
+            <div class="skills-section" id="skills">
+
+                <h2>
+                    My Skills
+                </h2>
+
+
+                <div class="skills">
+
+                    <div class="skill">
+                        HTML
+                    </div>
+
+                    <div class="skill">
+                        CSS
+                    </div>
+
+                    <div class="skill">
+                        JavaScript
+                    </div>
+
+                    <div class="skill">
+                        Python
+                    </div>
+
+                    <div class="skill">
+                        SQL
+                    </div>
+
+                    <div class="skill">
+                        UI/UX
+                    </div>
+
+                    <div class="skill">
+                        Web Design
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PROJECTS ================= -->
+
+            <div class="projects-section" id="projects">
+
+                <h2>
+                    My Projects
+                </h2>
+
+
+                <div class="projects">
+
+
+                    <!-- CRAFT STORE -->
+
+                    <a
+                        href="http://127.0.0.1:5500/CraftNest.html"
+                        target="_blank"
+                        class="project-card">
+
+                        <span>
+                            🎨
+                        </span>
+
+                        <h3>
+                            Craft Store
+                        </h3>
+
+                    </a>
+
+
+
+                    <!-- COZY CAFE -->
+
+                    <a
+                        href="http://127.0.0.1:5500/cozy-coffe-cafe.html"
+                        target="_blank"
+                        class="project-card">
+
+                        <span>
+                            ☕
+                        </span>
+
+                        <h3>
+                            Cozy Cafe
+                        </h3>
+
+                    </a>
+
+
+
+                    <!-- PORTFOLIO -->
+
+                    <a
+                        href="http://127.0.0.1:5500/About-Section.html"
+                        target="_blank"
+                        class="project-card">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <h3>
+                            Portfolio
+                        </h3>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= EXPLORE BUTTON ================= -->
+
+            <button onclick="showAbout()">
+                Explore More →
+            </button>
+
+
+
+            <!-- ================= HIDDEN CONTENT ================= -->
+
+            <div id="aboutText">
+
+                <h2>
+                    Why I Chose Codingal?
+                </h2>
+
+
+                <p>
+                    I chose Codingal because it provides a friendly and
+                    interactive environment where learning to code feels
+                    interesting and enjoyable. It helped me improve my coding
+                    skills through practical learning, projects, and
+                    continuous practice.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function showAbout() {
+
+            document.getElementById("aboutText").style.display = "block";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
